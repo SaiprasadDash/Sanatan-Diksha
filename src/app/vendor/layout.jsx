@@ -5,6 +5,7 @@ import PrivateGuard from '@/components/shared/PrivateGuard';
 import Header from '@/components/inc/header';
 import Sidebar from '@/components/vendor/sidebar';
 import Apiconnect from '@/services/Apiconnect';
+// import '@/styles/vendor-dashboard.css';
 
 export default function VendorLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function VendorLayout({ children }) {
 
   return (
     <PrivateGuard>
+      <link rel="stylesheet" href="/eduassets/css/style.css"/>
       <Header onMenuToggle={toggleSidebar} isMenuOpen={isSidebarOpen} />
       <div className="container">
         <div className="layout-wrapper d-flex">

@@ -157,7 +157,7 @@ const Header = ({ onMenuToggle, isMenuOpen }) => {
 
           <a className="navbar-brand d-flex align-items-center gap-0" href="/">
             <div className="logo-box">
-              <img src={logo} alt="Logo" className="logo-img" />
+              <img src={logo.src} alt="Logo" className="logo-img" />
             </div>
 
             <span className="fw-bold brand-text">Sanatan Diksha</span>

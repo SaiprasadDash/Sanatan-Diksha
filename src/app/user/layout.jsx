@@ -19,6 +19,7 @@ export default function UserLayout({ children }) {
 
   return (
     <PrivateGuard>
+      <link rel="stylesheet" href="/eduassets/css/style.css"/>
       <style>{`
         .layout-wrapper { display: flex; }
         .main-content { flex:1; padding:20px; min-height:100vh; margin-left:260px; }
