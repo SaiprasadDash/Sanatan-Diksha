@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter, usePathname } from 'next/navigation';
-import Apiconnect from '@/services/Apiconnect";
+import Apiconnect from '@/services/Apiconnect';
 import { useTranslation } from "react-i18next";
 
 function StarRow({ count = 5, size = 12 }) {

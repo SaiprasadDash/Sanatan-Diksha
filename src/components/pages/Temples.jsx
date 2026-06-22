@@ -7,7 +7,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useRouter, usePathname } from 'next/navigation';
 import ReactGA from "react-ga4";
-import '../style.css';
+import "../../styles/global.css";
 
 const Temples = () => {
   const { t, i18n } = useTranslation();

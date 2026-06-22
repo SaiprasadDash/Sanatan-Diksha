@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import Apiconnect from '@/services/Apiconnect";
+import Apiconnect from '@/services/Apiconnect';
 import { toast } from "react-toastify";
-import Helper from '@/services/HelperCodebase";
+import Helper from '@/services/HelperCodebase';
 import { useTranslation } from "react-i18next";
 
 const referred = [

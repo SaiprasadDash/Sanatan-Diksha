@@ -8,7 +8,7 @@ import Apiconnect from '@/services/Apiconnect';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactGA from "react-ga4";
-import "../../styles/style.css";
+import "../../styles/global.css";
 
 const Index = () => {
   const { t, i18n } = useTranslation();

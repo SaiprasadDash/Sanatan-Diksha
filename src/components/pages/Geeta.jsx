@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Apiconnect from '@/services/Apiconnect';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import "../style.css";
+import "../../styles/global.css";
 
 const Geeta = () => {
   const { t, i18n } = useTranslation();

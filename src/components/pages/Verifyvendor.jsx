@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { useParams, useRouter } from 'next/navigation';
-import Apiconnect from '@/services/Apiconnect.js";
+import Apiconnect from '@/services/Apiconnect.js';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReactCrop, { centerCrop, makeAspectCrop } from "react-image-crop";

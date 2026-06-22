@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Apiconnect from '@/services/Apiconnect";
+import Apiconnect from '@/services/Apiconnect';
 import { useTranslation } from "react-i18next";
 
 const Browse = () => {

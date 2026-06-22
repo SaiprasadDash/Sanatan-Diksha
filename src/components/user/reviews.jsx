@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import Apiconnect from '@/services/Apiconnect";
+import Apiconnect from '@/services/Apiconnect';
 import { useTranslation } from "react-i18next";
 
 const StarIcon = ({ filled = true, size = 12 }) => (

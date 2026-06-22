@@ -26,7 +26,7 @@ export default function VendorLayout({ children }) {
 
   return (
     <PrivateGuard>
-      <link rel="stylesheet" href="/eduassets/css/style.css"/>
+      {/* <link rel="stylesheet" href="/eduassets/css/style.css"/> */}
       <Header onMenuToggle={toggleSidebar} isMenuOpen={isSidebarOpen} />
       <div className="container">
         <div className="layout-wrapper d-flex">

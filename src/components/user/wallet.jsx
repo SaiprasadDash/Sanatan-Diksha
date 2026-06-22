@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import Apiconnect from '@/services/Apiconnect";
+import Apiconnect from '@/services/Apiconnect';
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 const addAmounts = [100, 200, 500, 1000, 2000, 5000];

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useParams } from 'next/navigation';
-import Apiconnect from '@/services/Apiconnect.js";
+import Apiconnect from '@/services/Apiconnect.js';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

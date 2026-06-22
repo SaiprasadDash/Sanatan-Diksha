@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import Apiconnect from '@/services/Apiconnect.js";
+import Apiconnect from '@/services/Apiconnect.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';

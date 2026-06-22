@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from "react";
-import Apiconnect from '@/services/Apiconnect";
+import Apiconnect from '@/services/Apiconnect';
 import { useTranslation } from "react-i18next";
-import Helper from '@/components/Helper.jsx";
+import Helper from '@/components/shared/Helper';
 import { usePathname } from 'next/navigation';
-import "../style.css";
+import "../../styles/global.css";
 
 const Feedback = () => {
   const pathname = usePathname();

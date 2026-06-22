@@ -8,7 +8,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import { useTranslation } from "react-i18next";
-import "../style.css";
+import "../../styles/global.css";
 
 const STORAGE_KEY = "geeta_progress";
 

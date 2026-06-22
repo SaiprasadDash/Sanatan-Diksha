@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import "../style.css";
+import "../../styles/global.css";
 
 const ComingSoon = () => {
   const { t, i18n } = useTranslation();
