@@ -3,7 +3,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import '@/styles/global.css';
 
 
-import Script from "next/script";
+// import Script from "next/script";
 import { AuthProvider } from "@/context/AuthProvider";
 import { VisitorProvider } from "@/context/VisitorContext";
 import AnalyticsProvider from "@/components/shared/AnalyticsProvider";
@@ -11,7 +11,7 @@ import AnalyticsProvider from "@/components/shared/AnalyticsProvider";
 export const metadata = {
   title: "Sanatan Diksha",
   description: "Sanatan Diksha Platform",
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: "/newwww.png" },
 };
 
 export default function RootLayout({ children }) {
@@ -32,10 +32,10 @@ export default function RootLayout({ children }) {
             <AnalyticsProvider>{children}</AnalyticsProvider>
           </AuthProvider>
         </VisitorProvider>
-        <Script src="/eduassets/vendor/jquery/jquery.min.js" strategy="beforeInteractive" />
+        {/* <Script src="/eduassets/vendor/jquery/jquery.min.js" strategy="beforeInteractive" />
         <Script src="/eduassets/vendor/global/global.min.js" strategy="afterInteractive" />
         <Script src="/eduassets/js/dlabnav-init.js" strategy="afterInteractive" />
-        <Script src="/eduassets/js/custom.min.js" strategy="afterInteractive" />
+        <Script src="/eduassets/js/custom.min.js" strategy="afterInteractive" /> */}
       </body>
     </html>
   );

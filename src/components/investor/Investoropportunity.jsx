@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from "react";
-import logo from "../assets/Sanatan Logo-high res.png";
+import logo from "../../assets/Sanatan Logo-high res.png";
 
 const styles = `
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
@@ -210,7 +210,7 @@ export default function SanatanDiksha() {
       <nav className="nav">
 
         <div className="nav-brand">
-          <img src={logo} alt="Logo" className="logo-img" />
+          <img src={logo.src} alt="Logo" className="logo-img" />
           <span className="nav-logo">Sanatan Diksha</span>
         </div>
         <div className="nav-links">
