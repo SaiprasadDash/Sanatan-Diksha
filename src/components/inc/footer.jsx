@@ -6,7 +6,7 @@ import "../../i18";
 import { useTranslation } from 'react-i18next';
 import { usePathname } from 'next/navigation';
 import { useVisitor } from "@/context/VisitorContext";
-import "../../styles/global.css";
+import "@/styles/global.css";
 
 
 const Footer = () => {

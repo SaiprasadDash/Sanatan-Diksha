@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@/styles/global.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import '@/styles/global.css';
+
 
 import Script from "next/script";
 import { AuthProvider } from "@/context/AuthProvider";
@@ -16,12 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ❌ REMOVED: /eduassets/css/style.css — breaks card styles on public pages */}
-        <link rel="stylesheet" href="/eduassets/icons/fontawesome/css/all.min.css" />
-        <link rel="stylesheet" href="/eduassets/icons/bootstrap-icons/font/bootstrap-icons.css" />
         <link rel="stylesheet" href="/eduassets/vendor/wow-master/css/libs/animate.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+        {/* <link rel="stylesheet" href="/eduassets/css/style.css" /> */}
+        <link rel="stylesheet" href="/eduassets/icons/fontawesome/css/all.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-        {/* ✅ ADD: Sanskrit text rendering */}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" />
         <style>{`body { font-family: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important; }`}</style>
       </head>

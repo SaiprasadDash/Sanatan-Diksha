@@ -9,7 +9,7 @@ import Apiconnect from '@/services/Apiconnect';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../../assets/Sanatan Logo-high res.png";
-import "../../styles/global.css";
+import "@/styles/global.css";
 
 const Header = ({ onMenuToggle, isMenuOpen }) => {
   const menuRef = useRef(null);

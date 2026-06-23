@@ -8,7 +8,7 @@ import Apiconnect from '@/services/Apiconnect';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ReactGA from "react-ga4";
-import "../../styles/global.css";
+import "@/styles/global.css";
 
 const Index = () => {
   const { t, i18n } = useTranslation();
@@ -245,7 +245,7 @@ const Index = () => {
       {/* Cosmic Profile Section */}
       {(cosmicLoading || cosmicData) && (
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 mb-4">
             <div className="card border-0 cosmic-card">
               <div className="card-body p-4">
 
