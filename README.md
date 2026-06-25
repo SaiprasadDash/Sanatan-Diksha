@@ -1,6 +1,6 @@
 # Sanatan Diksha — Next.js 15 (App Router)
 
-A spiritual-services platform converted from React (Vite) to Next.js 15 App Router. It supports three user roles — **Guest/Public**, **Customer**, and **Vendor (Pandit)** — each with their own layout, auth guard, and dashboard.
+A spiritual-services platform built with Next.js 15 App Router. It supports three user roles — **Guest/Public**, **Customer**, and **Vendor (Pandit)** — each with their own layout, auth guard, and dashboard.
 
 ---
 
@@ -221,24 +221,6 @@ Auth state is managed in `AuthProvider` (React Context + `localStorage`).
 - **`PrivateGuard`** — wraps protected layouts; redirects to `/` if no valid token is found.
 - **User layout** — additionally checks `localStorage.getItem('user_typ') === 'Customer'`.
 - **Vendor layout** — checks `user_typ === 'Vendor'` and fetches KYC status from the API to conditionally restrict vendor features.
-
----
-
-## Migration Reference (React Vite → Next.js)
-
-| React (Vite) | Next.js 15 |
-|---|---|
-| `react-router-dom` | File-system routing via `src/app/` |
-| `<Link to="...">` | `<Link href="...">` from `next/link` |
-| `useNavigate()` | `useRouter()` from `next/navigation` |
-| `useLocation()` | `usePathname()` from `next/navigation` |
-| `useParams()` | `useParams()` from `next/navigation` |
-| `src/main.jsx` | `src/app/layout.jsx` |
-| `PrivateRoutes.jsx` | `PrivateGuard` + layout-level auth checks |
-| `src/Pages/` | `src/components/pages/` |
-| `src/User/` | `src/components/user/` |
-| `src/Vendor/` | `src/components/vendor/` |
-| Route groups | `(public)/`, `user/`, `vendor/` layouts |
 
 ---
 
