@@ -1,6 +1,15 @@
 # Sanatan Diksha — Next.js 15 (App Router)
 
-Converted from React (Vite) → Next.js 15 App Router.
+A spiritual-services platform converted from React (Vite) to Next.js 15 App Router. It supports three user roles — **Guest/Public**, **Customer**, and **Vendor (Pandit)** — each with their own layout, auth guard, and dashboard.
+
+---
+
+## Prerequisites
+
+- **Node.js** 18.17 or later (required by Next.js 15)
+- **npm** 9+
+
+---
 
 ## Getting Started
 
@@ -11,87 +20,239 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
+### Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Run production build locally |
+| `npm run lint` | Run ESLint |
+
+---
+
+## Environment Variables
+
+Create `.env.local` in the project root:
+
+```env
+NEXT_PUBLIC_GA_ID=G-H8REM9SBYQ
+```
+
+> **Note:** The API base URL (`https://api.sanatandiksha.com/`) is currently hardcoded in `src/services/Apiconnect.js`. To make it configurable, replace the `API_URL` constant with `process.env.NEXT_PUBLIC_API_URL`.
+
+---
+
+## Public Assets
+
+The templates reference static assets served from the `public/` folder. Make sure the following are present:
+
+**`public/eduassets/`** — CSS, fonts, icons, and vendor JS libraries referenced in `src/app/layout.jsx`.
+
+**Logos and favicons** (copy to `public/`):
+- `favicon.svg`, `favicon.ico`, `favicon.png`
+- `icons.svg`
+- `newlogo.png`, `newwww.png` (used as the site favicon in metadata)
+- `s.png`
+- `Sanatan Logo-high res.png`, `Sanatan Logo.png`
+
+---
+
 ## Folder Structure
 
 ```
 src/
-├── app/                    ← All routes (App Router)
-│   ├── layout.jsx          ← Root layout (providers, CSS)
-│   ├── not-found.jsx       ← 404 page
-│   ├── (public)/           ← Public pages with Header+Footer
-│   │   ├── layout.jsx
-│   │   ├── page.jsx        ← Home /
+├── app/                          ← All routes (Next.js App Router)
+│   ├── layout.jsx                ← Root layout: providers, global CSS, fonts
+│   ├── not-found.jsx             ← Global 404 page
+│   │
+│   ├── (public)/                 ← Public pages (Header + Footer wrapper)
+│   │   ├── layout.jsx            ← Renders Header/Footer (hidden on /investoropportunity)
+│   │   ├── page.jsx              ← Home /
 │   │   ├── signin/page.jsx
 │   │   ├── signup/page.jsx
+│   │   ├── register/page.jsx
 │   │   ├── shop/page.jsx
+│   │   ├── productdetails/page.jsx
+│   │   ├── geeta/page.jsx
 │   │   ├── geeta/[slug]/page.jsx
-│   │   └── ... (all public routes)
-│   ├── user/               ← Protected Customer pages
-│   │   ├── layout.jsx      ← Auth guard + sidebar
+│   │   ├── index/[slug]/page.jsx
+│   │   ├── versedetail/page.jsx
+│   │   ├── panchang/page.jsx
+│   │   ├── temples/page.jsx
+│   │   ├── practice/page.jsx
+│   │   ├── investor/page.jsx
+│   │   ├── feedback/page.jsx
+│   │   ├── orderdetails/page.jsx
+│   │   ├── bookingsuccess/page.jsx
+│   │   ├── thankyou/page.jsx
+│   │   ├── panditthank/page.jsx
+│   │   ├── razorpay/page.jsx
+│   │   ├── customerrazorpay/page.jsx
+│   │   ├── forgetpass/page.jsx
+│   │   ├── forgetpassvendor/page.jsx
+│   │   ├── resetpass/[email]/page.jsx
+│   │   ├── resetpassvendor/[email]/page.jsx
+│   │   ├── verify/[id]/page.jsx
+│   │   ├── verifytoken/[id]/page.jsx
+│   │   ├── verifyvendor/[id]/page.jsx
+│   │   ├── privacypolicy/page.jsx
+│   │   ├── refundpolicy/page.jsx
+│   │   ├── terms/page.jsx
+│   │   └── comingsoon/page.jsx
+│   │
+│   ├── investoropportunity/      ← Standalone page (no Header/Footer)
+│   │   └── page.jsx
+│   │
+│   ├── user/                     ← Protected Customer pages
+│   │   ├── layout.jsx            ← Auth guard (user_typ === 'Customer') + Header + Sidebar
 │   │   ├── dashboard/page.jsx
-│   │   └── ... (all user routes)
-│   ├── vendor/             ← Protected Vendor pages
-│   │   ├── layout.jsx      ← Auth guard + KYC check + sidebar
-│   │   ├── dashboard/page.jsx
-│   │   └── ... (all vendor routes)
-│   └── investoropportunity/page.jsx
+│   │   ├── profile/page.jsx
+│   │   ├── browse/page.jsx
+│   │   ├── browsedetails/[id]/page.jsx
+│   │   ├── pooja/page.jsx
+│   │   ├── poojadetail/[ritual_id]/page.jsx
+│   │   ├── bookingpage/page.jsx
+│   │   ├── mybookings/page.jsx
+│   │   ├── payment/page.jsx
+│   │   ├── paymentpage/[order_id]/page.jsx
+│   │   ├── wallet/page.jsx
+│   │   ├── calender/page.jsx
+│   │   ├── datetime/page.jsx
+│   │   ├── location/page.jsx
+│   │   ├── familytree/page.jsx
+│   │   ├── refer/page.jsx
+│   │   ├── review/page.jsx
+│   │   ├── reviews/page.jsx
+│   │   ├── notification/page.jsx
+│   │   ├── support/page.jsx
+│   │   ├── changepassword/page.jsx
+│   │   ├── thankyou/page.jsx
+│   │   └── logout/page.jsx
+│   │
+│   └── vendor/                   ← Protected Vendor (Pandit) pages
+│       ├── layout.jsx            ← Auth guard (user_typ === 'Vendor') + KYC status + Header + Sidebar
+│       ├── dashboard/page.jsx
+│       ├── profile/page.jsx
+│       ├── browse/page.jsx
+│       ├── service/page.jsx
+│       ├── product/page.jsx
+│       ├── booking/page.jsx
+│       ├── availability/page.jsx
+│       ├── blockedslot/page.jsx
+│       ├── earning/page.jsx
+│       ├── wallet/page.jsx
+│       ├── gallery/page.jsx
+│       ├── media/page.jsx
+│       ├── video/page.jsx
+│       ├── videolisting/page.jsx
+│       ├── review/page.jsx
+│       ├── reviews/page.jsx
+│       ├── notification/page.jsx
+│       ├── support/page.jsx
+│       ├── referal/page.jsx
+│       ├── changepassword/page.jsx
+│       └── logout/page.jsx
 │
 ├── components/
-│   ├── inc/                ← header.jsx, footer.jsx
-│   ├── pages/              ← All public page components (from src/Pages/)
-│   ├── user/               ← All user dashboard components (from src/User/)
-│   ├── vendor/             ← All vendor dashboard components (from src/Vendor/)
-│   ├── investor/           ← Investoropportunity component
-│   └── shared/             ← PrivateGuard, AnalyticsProvider, Pagination, Helper, SkeletonLoader
+│   ├── inc/                      ← Shared site chrome
+│   │   ├── header.jsx
+│   │   └── footer.jsx
+│   ├── pages/                    ← One component per public route
+│   ├── user/                     ← Customer dashboard components + sidebar, header, footer
+│   ├── vendor/                   ← Vendor dashboard components + sidebar, header, footer
+│   ├── investor/                 ← Investoropportunity component
+│   └── shared/
+│       ├── PrivateGuard.jsx      ← Redirect unauthenticated users to /
+│       ├── AnalyticsProvider.jsx ← Google Analytics 4 via react-ga4
+│       ├── Pagination.jsx
+│       ├── Helper.jsx
+│       └── SkeletonLoader.jsx
 │
 ├── context/
-│   ├── AuthProvider.jsx    ← Auth state (isAuthenticated, userType, login, logout)
-│   └── VisitorContext.jsx
+│   ├── AuthProvider.jsx          ← Global auth state (isAuthenticated, userType, login, logout)
+│   └── VisitorContext.jsx        ← Visitor/session tracking
 │
 ├── services/
-│   ├── Apiconnect.js       ← Axios wrapper (Next.js safe — lazy localStorage)
+│   ├── Apiconnect.js             ← Axios wrapper with AES encryption + lazy localStorage access
 │   └── HelperCodebase.js
 │
 ├── constants/
-│   └── config.js
+│   └── config.js                 ← App-wide constants (DEFAULT_RECORDS_PER_PAGE, DEBOUNCE_DELAY)
 │
 ├── styles/
-│   ├── style.css
-│   ├── user.css
+│   ├── global.css                ← Global styles (imported in root layout)
+│   ├── App.css
 │   └── index.css
 │
 └── lib/
-    ├── analytics.js
-    └── i18.js
+    ├── analytics.js              ← GA4 helpers
+    └── i18.js                    ← i18next configuration
 ```
 
-## Key Changes from React (Vite)
+---
 
-| React                     | Next.js                          |
-|---------------------------|----------------------------------|
-| `react-router-dom`        | `next/navigation` + file system routing |
-| `useNavigate()`           | `useRouter()` from `next/navigation` |
-| `<Link to="...">`         | `<Link href="...">` from `next/link` |
-| `useLocation()`           | `usePathname()` from `next/navigation` |
-| `useParams()`             | `useParams()` from `next/navigation` |
-| `src/main.jsx`            | `src/app/layout.jsx`             |
-| Route groups              | `(public)/`, `user/`, `vendor/` layouts |
-| `PrivateRoutes.jsx`       | `PrivateGuard` + layout auth checks |
+## Key Dependencies
 
-## Public Assets
+| Package | Purpose |
+|---|---|
+| `next` ^15 | Framework + App Router |
+| `react` ^19 | UI library |
+| `axios` | HTTP client |
+| `bootstrap` + `react-bootstrap` | UI components and grid |
+| `bootstrap-icons` | Icon set |
+| `crypto-js` | AES encryption for API payloads |
+| `i18next` + `react-i18next` | Internationalisation |
+| `react-toastify` | Toast notifications |
+| `react-loading-skeleton` | Loading placeholders |
+| `react-datepicker` | Date picker |
+| `react-image-crop` | Profile image cropping |
+| `react-speech-recognition` | Voice input |
+| `react-ga4` | Google Analytics 4 |
+| `luxon` | Date/time utilities |
+| `@react-google-maps/api` | Google Maps integration |
 
-Copy the `public/eduassets/` folder from your original project into the `public/` folder here. This provides CSS, icons, fonts and images that the templates reference.
+---
 
-Also copy these to `public/`:
-- `favicon.svg`, `favicon.ico`, `favicon.png`
-- `icons.svg`, `newlogo.png`, `newwww.png`
-- `s.png`, `Sanatan Logo-high res.png`, `Sanatan Logo.png`
+## Authentication & Route Protection
 
-## Environment Variables
+Auth state is managed in `AuthProvider` (React Context + `localStorage`).
 
-Create `.env.local` for any secrets:
+- **`PrivateGuard`** — wraps protected layouts; redirects to `/` if no valid token is found.
+- **User layout** — additionally checks `localStorage.getItem('user_typ') === 'Customer'`.
+- **Vendor layout** — checks `user_typ === 'Vendor'` and fetches KYC status from the API to conditionally restrict vendor features.
 
+---
+
+## Migration Reference (React Vite → Next.js)
+
+| React (Vite) | Next.js 15 |
+|---|---|
+| `react-router-dom` | File-system routing via `src/app/` |
+| `<Link to="...">` | `<Link href="...">` from `next/link` |
+| `useNavigate()` | `useRouter()` from `next/navigation` |
+| `useLocation()` | `usePathname()` from `next/navigation` |
+| `useParams()` | `useParams()` from `next/navigation` |
+| `src/main.jsx` | `src/app/layout.jsx` |
+| `PrivateRoutes.jsx` | `PrivateGuard` + layout-level auth checks |
+| `src/Pages/` | `src/components/pages/` |
+| `src/User/` | `src/components/user/` |
+| `src/Vendor/` | `src/components/vendor/` |
+| Route groups | `(public)/`, `user/`, `vendor/` layouts |
+
+---
+
+## Next.js Image Optimisation
+
+Remote images from `api.sanatandiksha.com` are whitelisted in `next.config.mjs`. Use `next/image` instead of plain `<img>` tags to take advantage of automatic optimisation:
+
+```jsx
+import Image from 'next/image';
+<Image src="https://api.sanatandiksha.com/..." width={100} height={100} alt="..." />
 ```
-NEXT_PUBLIC_GA_ID=G-H8REM9SBYQ
-NEXT_PUBLIC_API_URL=https://api.sanatandiksha.com/
-```
+
+---
+
+## i18n
+
+Internationalisation is configured in `src/lib/i18.js` using `i18next` + `react-i18next`. Add locale JSON files under `public/locales/` as needed.
